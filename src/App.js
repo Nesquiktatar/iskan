@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import * as s from './App.styles';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+//Components
+import Sidebar from "./components/Sidebar/Sidebar";
+import MainView from "./components/MainView/MainView";
+
+const App = () => {
+
+    const colors = {
+        black: '#000000',
+        darGreen: '#3e432e',
+        middleGreen: '#616f39',
+        lightGreen: '#a7d129'
+    }
+
+
+    const menuItems = [
+        {name: 'home', to: '/'},
+        {name: 'about', to: '/about'},
+        {name: 'contact', to: '/contact'},
+    ]
+
+    const fonts = {
+        menu:  'Syncopate'
+    }
+
+    return (
+    <s.App colors={colors}>
+      <Sidebar menuItems={menuItems}
+               fonts={fonts}
+               colors={colors}
+      />
+      <MainView colors={colors}/>
+
+    </s.App>
   );
 }
 
